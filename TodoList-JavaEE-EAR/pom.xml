@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.sebrevel.todolist</groupId>
+    <artifactId>todolist-javaee-ear</artifactId>
+    <version>1.0</version>
+    <packaging>ear</packaging>
+    <name>JavaEE EAR</name>
+
+    <parent>
+        <groupId>org.sebrevel.todolist</groupId>
+        <artifactId>todolist</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <dependencies>
+	    <dependency>
+            <groupId>org.sebrevel.todolist</groupId>
+            <artifactId>todolist-javaee</artifactId>
+            <type>war</type>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sebrevel.todolist</groupId>
+            <artifactId>todolist-extjs</artifactId>
+            <type>war</type>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sebrevel.todolist</groupId>
+            <artifactId>todolist-senchatouch</artifactId>
+            <type>war</type>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <defaultLibBundleDir>/lib</defaultLibBundleDir>
+                    <modules>
+                        <webModule>
+                            <groupId>org.sebrevel.todolist</groupId>
+                            <artifactId>todolist-javaee</artifactId>
+                            <contextRoot>/todolist-rest</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>org.sebrevel.todolist</groupId>
+                            <artifactId>todolist-extjs</artifactId>
+                            <contextRoot>/todolist-extjs</contextRoot>
+                        </webModule>                        
+						<webModule>
+                            <groupId>org.sebrevel.todolist</groupId>
+                            <artifactId>todolist-senchatouch</artifactId>
+                            <contextRoot>/todolist-senchatouch</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
